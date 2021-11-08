@@ -1,6 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
-// import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
+import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 import 'package:get/get.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
 import 'package:google_sign_in/google_sign_in.dart';
@@ -53,29 +53,29 @@ class Controller extends GetxController {
 //     print('--- signInWithFacebook ---');
 //     print('<=========================================>');
 
-  // Future<FacbookSignUpRequestModel> signInWithFacebook() async {
-  //   late OAuthCredential credential;
-  //   await FacebookAuth.instance.login().then((facebookUser) async {
-  //     facebookSignin.value = true;
-  //     print(facebookUser.accessToken);
-  //     credential = FacebookAuthProvider.credential(
-  //         facebookUser.accessToken?.token ?? '');
-  //   }).onError((error, stackTrace) {
-  //     facebookSignin.value = false;
-  //     print('Facebook Sign in error');
-  //   });
+  Future<FacbookSignUpRequestModel> signInWithFacebook() async {
+    late OAuthCredential credential;
+    await FacebookAuth.instance.login().then((facebookUser) async {
+      facebookSignin.value = true;
+      print(facebookUser.accessToken);
+      credential = FacebookAuthProvider.credential(
+          facebookUser.accessToken?.token ?? '');
+    }).onError((error, stackTrace) {
+      facebookSignin.value = false;
+      print('Facebook Sign in error');
+    });
 
-  //   await FirebaseAuth.instance.signInWithCredential(credential);
-  //   User? user = FirebaseAuth.instance.currentUser;
-  //   facebookSignUpdata = FacbookSignUpRequestModel(
-  //       userName: user?.displayName,
-  //       authKey: user?.uid,
-  //       email: user?.email,
-  //       country: 'India',
-  //       platform: 'google');
-  //   update();
-  //   return facebookSignUpdata;
-  // }
+    await FirebaseAuth.instance.signInWithCredential(credential);
+    User? user = FirebaseAuth.instance.currentUser;
+    facebookSignUpdata = FacbookSignUpRequestModel(
+        userName: user?.displayName,
+        authKey: user?.uid,
+        email: user?.email,
+        country: 'India',
+        platform: 'google');
+    update();
+    return facebookSignUpdata;
+  }
 
   Future<void> logOutGoogle() async {
     googleSignin.value = false;
@@ -90,17 +90,17 @@ class Controller extends GetxController {
     update();
   }
 
-  // Future<void> logOutFacbook() async {
-  //   facebookSignin.value = false;
+  Future<void> logOutFacbook() async {
+    facebookSignin.value = false;
 
-  //   await FacebookAuth.instance.logOut().then((googleUser) async {
-  //     facebookSignUpdata = FacbookSignUpRequestModel();
-  //   }).onError((error, stackTrace) {
-  //     print('Facbook Logout error');
-  //   });
-  //   FirebaseAuth.instance.currentUser?.delete();
-  //   update();
-  // }
+    await FacebookAuth.instance.logOut().then((googleUser) async {
+      facebookSignUpdata = FacbookSignUpRequestModel();
+    }).onError((error, stackTrace) {
+      print('Facbook Logout error');
+    });
+    FirebaseAuth.instance.currentUser?.delete();
+    update();
+  }
 
 // String generateNonce([int length = 32]) {
 //   final charset =

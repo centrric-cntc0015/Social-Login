@@ -105,7 +105,7 @@ class _MyHomePageState extends State<MyHomePage> {
               return controller.facebookSignin.value == false
                   ? InkWell(
                       onTap: () {
-                        // controller.signInWithFacebook();
+                        controller.signInWithFacebook();
                       },
                       child: Container(
                         child: Icon(
@@ -118,7 +118,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   // Text('Sign In'))
                   : InkWell(
                       onTap: () {
-                        // controller.logOutFacbook();
+                        controller.logOutFacbook();
                       },
                       child: Container(
                           height: 50,
