@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "412155321968",
+    "project_id": "social-login-f8527",
+    "storage_bucket": "social-login-f8527.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:412155321968:android:2cd97cfe88e65ab8c69eb5",
+        "android_client_info": {
+          "package_name": "com.example.social_login"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "412155321968-esg2dbp1jsojfg7k8utdmgmk2ftmjqhm.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.social_login",
+            "certificate_hash": "7e81ccd00f715de8d922a6ef0b78430510a9550f"
+          }
+        },
+        {
+          "client_id": "412155321968-lah2mglvlimki9tloslbndq2omkp43gj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDHcdd5CLmaQhXoP8gZ-L8YoYyeI7PsJpw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "412155321968-lah2mglvlimki9tloslbndq2omkp43gj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
